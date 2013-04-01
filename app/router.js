@@ -15,7 +15,8 @@ define(function(require) {
 
       var collections = {
         searchResults: new search.Collection(),
-        relatedVideos: new nowPlaying.RelatedVideosCollection()
+        relatedVideos: new nowPlaying.RelatedVideosCollection(),
+        comments: new nowPlaying.CommentsCollection()
       };
 
       var models = {
@@ -41,11 +42,13 @@ define(function(require) {
 
     displayVideo: function (id) {
       var self = this;
-      this.clean();
+      if (app.layout && app.layout.options.template !== 'nowPlaying/nowPlaying-layout') {
+        this.clean();
+      }
       app.useLayout("nowPlaying/nowPlaying-layout").setViews({
         ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
         ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
-        ".comments": new nowPlaying.Views.Comments(),
+        ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
         ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
       }).render().then(function () {
           self.nowPlaying.videoSource = id;
@@ -72,12 +75,13 @@ define(function(require) {
 //--Methods-------------------------------------------------------------------------------------------------------------
     nowPlayingExtras: function (model, response, options) {
       //TODO: fetch comments and related videos
-      this.relatedVideos.url = model.id.$t + '/related' + '?format=5&alt=json-in-script';
+      this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
       this.relatedVideos.fetch({ dataType: 'jsonp' });
+      this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
+      this.comments.fetch({ dataType: 'jsonp' });
     },
 
     onSearch: function(searchTerm) {
-
       if (app.layout.options.template === 'main-layout') {
         this.searchResults.searchTerm = searchTerm;
         this.searchResults.fetch({ dataType: 'jsonp' });
@@ -88,7 +92,14 @@ define(function(require) {
 
     clean: function () {
       if (app.layout) {
-        app.layout.remove();
+        //remove current child views
+        app.layout.getViews().each(function (childView) {
+          childView.remove();
+        });
+
+        //reset collections
+        this.relatedVideos.reset();
+        this.comments.reset();
       }
     }
   });

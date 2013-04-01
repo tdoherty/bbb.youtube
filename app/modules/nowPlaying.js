@@ -4,11 +4,14 @@ define(function(require) {
   var app = require('app');
   var Model = require('../models/nowPlaying/nowPlaying');
   var SearchResultModel = require('../models/search/result');
+  var CommentModel = require('../models/nowPlaying/comment');
   var RelatedVideosCollection = require('../collections/nowPlaying/related');
+  var CommentsCollection = require('../collections/nowPlaying/comments');
   var SearchBarView = require('../views/searchBar');
   var NowPlayingView = require('../views/nowPlaying/nowPlaying');
   var SearchBarModel = require('../models/search/searchBar');
   var RelatedVideosView = require('../views/nowPlaying/relatedList');
+  var CommentsListView = require('../views/nowPlaying/commentsList');
 
   // Create a new module.
   var Module = app.module();
@@ -20,13 +23,17 @@ define(function(require) {
     model: SearchResultModel
   });
 
+  Module.CommentsCollection = CommentsCollection.extend({
+    model: CommentModel
+  });
+
   // Default View.
   Module.Views.Layout = Backbone.Layout.extend({
     template: "search/search"
   });
 
   Module.Views.NowPlaying = NowPlayingView;
-  Module.Views.Comments = Backbone.View.extend({});
+  Module.Views.Comments = CommentsListView;
   Module.Views.Related = RelatedVideosView;
   Module.Views.SearchBar = SearchBarView;
 

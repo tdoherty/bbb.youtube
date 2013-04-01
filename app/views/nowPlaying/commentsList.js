@@ -4,41 +4,30 @@
 define(function (require) {
 
   //module dependencies
-  var $ = require('jquery');
   var Backbone = require('backbone');
-  Backbone.ModelBinder = require('backbone.modelbinder');
+  var ItemView = require('./commentsItem');
 
   return Backbone.View.extend({
 
 //------Properties------------------------------------------------------------------------------------------------------
-    template: 'search/searchBar',
-    events: {
-      'keypress #searchTerm': 'onSearchKeyPress',
-      'click .icon-search': 'search'
-    },
+    template: 'nowPlaying/commentsList',
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.modelBinder = new Backbone.ModelBinder();
-//      this.listenTo(this.model, 'change:searchTerm', this.search);
+      this.listenTo(this.collection, 'sync', this.render);
     },
 
 //--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
-    afterRender: function () {
-      this.modelBinder.bind(this.model, this.el);
-    },
+    beforeRender: function() {
+      this.collection.each(function(item) {
+        this.insertView("ul.unstyled", new ItemView({
+          model: item
+        }));
+      }, this);
+    }
 
 //------Event Handlers--------------------------------------------------------------------------------------------------
-    onSearchKeyPress: function (e) {
-      if (e.which === 13)  {
-        this.$(e.currentTarget).change();
-        this.search();
-      }
-    },
 
-    search: function () {
-      Backbone.trigger('global:search', this.model.get('searchTerm'));
-    }
 //------DOM Helpers-----------------------------------------------------------------------------------------------------
 
   });
