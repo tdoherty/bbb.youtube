@@ -8424,7 +8424,7 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
     },
 
 //--Methods-------------------------------------------------------------------------------------------------------------
-    nowPlayingExtras: function (model, response, options) {
+    getRelatedContent: function (model, response, options) {
       //TODO: fetch comments and related videos
       this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
       this.relatedVideos.fetch({ dataType: 'jsonp' });

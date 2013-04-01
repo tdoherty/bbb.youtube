@@ -73,6 +73,10 @@ define([
 
       // Cache the refererence.
       return this.layout = layout;
+    },
+
+    close: function () {
+      delete window.JST; //remove global templates variable for GC
     }
   }, Backbone.Events);
 

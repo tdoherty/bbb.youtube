@@ -15,7 +15,7 @@ define(function (require) {
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.collection, 'sync', this.doIt);
+      this.listenTo(this.collection, 'sync', this.render);
     },
 
 //--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
@@ -28,10 +28,7 @@ define(function (require) {
     },
 
 //------Event Handlers--------------------------------------------------------------------------------------------------
-    doIt: function () {
-      console.log('synced');
-      this.render();
-    }
+
 //------DOM Helpers-----------------------------------------------------------------------------------------------------
 
   });

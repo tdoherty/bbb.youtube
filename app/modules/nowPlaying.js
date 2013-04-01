@@ -28,8 +28,8 @@ define(function(require) {
   });
 
   // Default View.
-  Module.Views.Layout = Backbone.Layout.extend({
-    template: "search/search"
+  Module.Views.Layout = Backbone.View.extend({
+    template: "nowPlaying/nowPlaying-layout"
   });
 
   Module.Views.NowPlaying = NowPlayingView;

@@ -39,4 +39,9 @@ function(app, Router) {
     }
   });
 
+  $(window).on('beforeunload', function() {
+    app.router.close();
+    app.close();
+  });
+
 });
