@@ -37,6 +37,7 @@ define(function (require) {
     },
 
     search: function () {
+//      this.trigger('global:search'); //, this.model.get('searchTerm'));
       Backbone.trigger('global:search', this.model.get('searchTerm'));
     }
 //------DOM Helpers-----------------------------------------------------------------------------------------------------

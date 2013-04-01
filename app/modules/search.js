@@ -2,9 +2,9 @@
 define(function(require) {
 
   var app = require('app');
-  var Collection = require('../collections/searchResults');
-  var SearchBarView = require('../views/searchBar');
-  var SearchListView = require('../views/searchList');
+  var Collection = require('../collections/search/searchResults');
+  var SearchBarView = require('../views/search/searchBar');
+  var SearchListView = require('../views/search/searchList');
   var SearchResultModel = require('../models/search/result');
   var SearchBarModel = require('../models/search/searchBar');
 

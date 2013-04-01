@@ -18,7 +18,7 @@ define(function (require) {
     videoSource: '',
 
     url: function () {
-      return 'http://gdata.youtube.com/feeds/videos/' + this.videoSource + '?format=5&alt=json-in-script'
+      return 'http://gdata.youtube.com/feeds/videos/' + this.videoSource + '?format=5&alt=json-in-script';
     },
 
     parse: function (response) {

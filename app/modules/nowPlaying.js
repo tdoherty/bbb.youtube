@@ -7,7 +7,7 @@ define(function(require) {
   var CommentModel = require('../models/nowPlaying/comment');
   var RelatedVideosCollection = require('../collections/nowPlaying/related');
   var CommentsCollection = require('../collections/nowPlaying/comments');
-  var SearchBarView = require('../views/searchBar');
+  var SearchBarView = require('../views/search/searchBar');
   var NowPlayingView = require('../views/nowPlaying/nowPlaying');
   var SearchBarModel = require('../models/search/searchBar');
   var RelatedVideosView = require('../views/nowPlaying/relatedList');

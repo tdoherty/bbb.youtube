@@ -24,6 +24,7 @@ define(function(require) {
         searchBar: new search.SearchBarModel()
       };
 
+      //make collections and models available to router
       _.extend(this, collections, models);
 
       Backbone.on('global:search', this.onSearch, this);
@@ -58,6 +59,7 @@ define(function(require) {
           });
         }
       );
+//      app.layout.on('global:search', this.onSearch, this);
     },
 
     search: function (term) {
@@ -69,7 +71,6 @@ define(function(require) {
 
       this.searchResults.searchTerm = term;
       this.searchResults.fetch({ dataType: 'jsonp' });
-
     },
 
 //--Methods-------------------------------------------------------------------------------------------------------------
@@ -85,11 +86,13 @@ define(function(require) {
       if (app.layout.options.template === 'main-layout') {
         this.searchResults.searchTerm = searchTerm;
         this.searchResults.fetch({ dataType: 'jsonp' });
+        this.navigate('search/' + searchTerm, {trigger: false});
       }else {
         this.navigate('search/' + searchTerm, {trigger: true});
       }
     },
 
+    //teardown current layout
     clean: function () {
       if (app.layout) {
         //remove current child views

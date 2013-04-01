@@ -1,17 +1,19 @@
 /* app css stylesheet */
 
-
 .video-thumb {
     position: relative;
 }
+
 .yt-thumb-default-120 {
     height: 67px;
     width: 120px;
 }
+
 .yt-thumb-square-48 {
     height: 48px;
     width: 48px;
 }
+
 .ux-thumb {
     background: none repeat scroll 0 0 #F1F1F1;
     display: inline-block;
@@ -30,7 +32,6 @@
     word-break: normal;
 }
 
-
 .yt-thumb-clip-inner {
     height: 100%;
     left: 0;
@@ -42,6 +43,7 @@
 .ux-thumb .vertical-align {
     height: 100%;
 }
+
 .yt-thumb-clip img, .yt-thumb-clip .vertical-align {
     display: inline-block;
     vertical-align: middle;
@@ -60,10 +62,12 @@
     padding: 0 4px;
     vertical-align: top;
 }
+
 .video-time {
     margin-right: 0;
     margin-top: 0;
 }
+
 .video-time, .video-actions {
     bottom: 2px;
     position: absolute;
@@ -74,10 +78,12 @@
     margin-bottom: 15px;
     position: relative;
 }
+
 .video-list-item .title {
     color: #333333;
     font-size: 13px;
-    font-weight: bold;    cursor: pointer;
+    font-weight: bold;
+    cursor: pointer;
     display: block;
     line-height: 1.2;
     margin-bottom: 2px;
@@ -98,6 +104,7 @@
     float: left;
     margin: 0 8px 0 0;
 }
+
 .ux-thumb-wrap {
     display: inline-block;
     position: relative;
@@ -106,9 +113,11 @@
 a.ux-thumb-wrap {
     text-decoration: none;
 }
+
 .video-list-item a {
     padding: 0 5px;
 }
+
 .video-list-item a {
     color: #333333;
     display: block;
@@ -117,6 +126,7 @@ a.ux-thumb-wrap {
     position: relative;
     text-decoration: none;
 }
+
 a {
     /*color: #438BC5;*/
     cursor: pointer;
@@ -137,10 +147,12 @@ a {
     padding-right: 9px;
     vertical-align: baseline;
 }
+
 .comment-text, .comment .author {
     font-size: 13px;
     line-height: 17px;
 }
+
 .comment .comment-show-hide, .comment .time {
     font-size: 11px;
     margin: 0 0.5em;
@@ -154,21 +166,25 @@ a {
 .clearfix:after {
     clear: both;
 }
+
 .clearfix:before, .clearfix:after {
     content: ".";
     display: block;
     height: 0;
     visibility: hidden;
 }
+
 .clearfix:before, .clearfix:after {
     content: ".";
     display: block;
     height: 0;
     visibility: hidden;
 }
+
 .yt-uix-tile {
     cursor: pointer;
 }
+
 .yt-lockup2 {
     padding: 10px 15px;
 }
@@ -201,7 +217,6 @@ a {
     word-wrap: break-word;
 }
 
-
 .yt-lockup2-meta, .yt-lockup2-description, .yt-lockup2-badges {
     color: #222222;
     font-size: 12px;
@@ -224,7 +239,24 @@ a {
     width: 640px;
 }
 
-
 .search-header {
     border-bottom: 1px solid #F1F1F1;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+@media (max-width: 980px) {
+    /* Enable use of floated navbar text */
+    .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }

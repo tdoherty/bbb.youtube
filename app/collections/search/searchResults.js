@@ -7,7 +7,7 @@ define(function (require) {
   var Backbone = require('backbone');
 
   function getDuration(seconds) {
-     minutes = parseInt(seconds / 60);
+     minutes = parseInt(seconds / 60, 10);
      seconds = '' + (seconds % 60);
      if (seconds.length === 1) { seconds = '0' + seconds; }
      return minutes + ':' + seconds;

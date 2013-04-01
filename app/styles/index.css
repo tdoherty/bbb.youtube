@@ -2,5 +2,8 @@
 
 @import "../../vendor/h5bp/css/normalize.css";
 @import "../../vendor/h5bp/css/main.css";
+@import "bootstrap.css";
+@import "bootstrap-responsive.css";
+@import "app.css";
 
 /*-- Application stylesheets. -----------------------------------------------*/

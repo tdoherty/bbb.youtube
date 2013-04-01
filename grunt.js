@@ -32,9 +32,18 @@ module.exports = function(grunt) {
     // The concat task depends on this file to exist, so if you decide to
     // remove this, ensure concat is updated accordingly.
     jst: {
-      "dist/debug/templates.js": [
-        "app/templates/**/*.html"
-      ]
+      compile: {
+        options: {
+          templateSettings: {
+            interpolate: /\{\{(.+?)\}\}/g
+          }
+        },
+        files: {
+          "dist/debug/templates.js": [
+            "app/templates/**/*.html"
+          ]
+        }
+      }
     },
 
     // This task simplifies working with CSS inside Backbone Boilerplate
@@ -206,21 +215,22 @@ module.exports = function(grunt) {
     // This task will copy assets into your build directory,
     // automatically.  This makes an entirely encapsulated build into
     // each directory.
-    //copy: {
-    //  debug: {
-    //    files: {
-    //      "dist/debug/app/": "app/**",
-    //      "dist/debug/vendor/": "vendor/**"
-    //    }
-    //  },
+    copy: {
+      debug: {
+        files: {
+          "dist/debug/img/": "app/img/**"
+//          "dist/debug/app/": "app/**",
+//          "dist/debug/vendor/": "vendor/**"
+        }
+      }//,
 
-    //  release: {
-    //    files: {
-    //      "dist/release/app/": "app/**",
-    //      "dist/release/vendor/": "vendor/**"
-    //    }
-    //  }
-    //}
+//      release: {
+//        files: {
+//          "dist/release/app/": "app/**",
+//          "dist/release/vendor/": "vendor/**"
+//        }
+//      }
+    }
 
   });
 
@@ -229,7 +239,7 @@ module.exports = function(grunt) {
   // dist/debug/templates.js, compile all the application code into
   // dist/debug/require.js, and then concatenate the require/define shim
   // almond.js and dist/debug/templates.js into the require.js file.
-  grunt.registerTask("debug", "clean lint jst requirejs concat styles");
+  grunt.registerTask("debug", "clean lint jst requirejs concat styles copy");
 
   // The release task will run the debug tasks and then minify the
   // dist/debug/require.js file and CSS files.
