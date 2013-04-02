@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="600a5bc0-2062-4336-9969-f56859159807" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/glyphicons-halflings-white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/glyphicons-halflings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/require.js" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\bg_hr.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\blacktocat.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\icon_download.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\sprite_download.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\javascripts\main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\stylesheets\pygment_trac.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\stylesheets\stylesheet.css" afterPath="" />
+      <change type="MOVED" beforePath="C:\Projects\SandBox\bbb.youtube\index.css" afterPath="$PROJECT_DIR$/styles/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="bbb.youtube.iws" />
@@ -51,6 +41,7 @@
     <file path="/link.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364926113549" ignored="false" />
     <file path="/app.css" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364925789679" ignored="false" />
     <file path="/home.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364927162651" ignored="false" />
+    <file path="/index.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364933056019" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +61,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="params.json" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="params.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/params.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="164" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+            <state line="0" column="152" selection-start="152" selection-end="152" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="32" selection-start="464" selection-end="464" vertical-scroll-proportion="0.34580386">
               <folding />
             </state>
           </provider>
@@ -97,7 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/contact/contactLinks.js" />
         <option value="$PROJECT_DIR$/app/views/contact/contactLink.js" />
         <option value="$PROJECT_DIR$/app/styles/app.css" />
         <option value="$PROJECT_DIR$/app/templates/contact/link.html" />
@@ -113,6 +112,7 @@
         <option value="$PROJECT_DIR$/app/views/search/searchList.js" />
         <option value="$PROJECT_DIR$/dist/release/index.html" />
         <option value="$PROJECT_DIR$/grunt.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -167,6 +167,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbb.youtube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbb.youtube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -186,11 +200,11 @@
       <recent name="C:\Projects\SandBox\bbb.youtube\app\models\nowPlaying" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\SandBox\bbb.youtube\styles" />
       <recent name="C:\Projects\SandBox\bbb.youtube" />
       <recent name="C:\Projects\SandBox\bbb.youtube\app\templates\home" />
       <recent name="C:\Projects\SandBox\bbb.youtube\app\views\search" />
       <recent name="C:\Projects\SandBox\bbb.youtube\app\collections\search" />
-      <recent name="C:\Projects\SandBox\bbb.youtube\app\collections\nowPlaying" />
     </key>
   </component>
   <component name="RunManager">
@@ -214,13 +228,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2139808" sideWeight="0.67082536" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2139808" sideWeight="0.67082536" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -298,7 +312,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/params.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="164" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+        <state line="0" column="152" selection-start="152" selection-end="152" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="32" selection-start="464" selection-end="464" vertical-scroll-proportion="0.34580386">
           <folding />
         </state>
       </provider>
