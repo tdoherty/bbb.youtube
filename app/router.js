@@ -6,9 +6,12 @@ define(function(require) {
   var search = require('modules/search');
   var nowPlaying = require('modules/nowPlaying');
   var home = require('modules/home');
+  var recentVideos = require('modules/recentVideos');
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
+
+    recentArray: [],
 
     initialize: function () {
 
@@ -17,7 +20,8 @@ define(function(require) {
       var collections = {
         searchResults: new search.Collection(),
         relatedVideos: new nowPlaying.RelatedVideosCollection(),
-        comments: new nowPlaying.CommentsCollection()
+        comments: new nowPlaying.CommentsCollection(),
+        recentVideos: new recentVideos.Collection()
       };
 
       var models = {
@@ -32,6 +36,12 @@ define(function(require) {
       this.nowPlaying.on('sync', this.getRelatedContent, this);
 
       Backbone.on('global:search', this.onSearch, this);
+
+      app.useLayout('main-layout').setViews({
+        '.navbar-inner': new home.Views.TopNav(),
+        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos })
+//        '.content': l
+      }).render();
     },
 
     routes: {
@@ -50,12 +60,6 @@ define(function(require) {
       if (app.layout && app.layout.options.template !== 'nowPlaying/nowPlaying-layout') {
         this.clean();
       }
-//      app.useLayout("nowPlaying/nowPlaying-layout").setViews({
-//        ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
-//        ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
-//        ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
-//        ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
-//      })
 
       var l = new nowPlaying.Views.Layout();
       l.setViews({
@@ -83,11 +87,7 @@ define(function(require) {
         ".searchResults": new search.Views.List({ collection: this.searchResults })
       });
 
-      app.useLayout('main-layout').setViews({
-        '.navbar-inner': new home.Views.TopNav(),
-        '.sidebar-nav': new home.Views.SidebarNav(),
-        '.content': l
-      }).render();
+      app.layout.insertView('.content',l).render();
 
       this.searchResults.searchTerm = term;
       this.searchBar.set('searchTerm', term);
@@ -98,7 +98,8 @@ define(function(require) {
     onSearch: function(searchTerm) {
       var contentView = app.layout.getViews('.content');
 
-      if (contentView.template === 'search-layout') {
+
+      if (Backbone.history.fragment.contains('search/')) {
         this.searchResults.searchTerm = searchTerm;
         this.searchResults.fetch({ dataType: 'jsonp' });
         this.navigate('search/' + searchTerm, {trigger: false});
@@ -115,6 +116,16 @@ define(function(require) {
       this.relatedVideos.fetch({ dataType: 'jsonp' });
       this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
       this.comments.fetch({ dataType: 'jsonp' });
+
+      if (this.recentArray.length >= 10) {
+        this.recentArray.pop();
+      }
+      this.recentArray.push({
+        hash: model.get('source'),
+        title: model.get('title').$t
+      });
+
+      this.recentVideos.reset(this.recentArray);
     },
 
     //teardown current layout
@@ -122,12 +133,15 @@ define(function(require) {
       if (app.layout) {
         //remove current child views
         app.layout.getViews('.content').each(function (childView) {
-          childView.remove();
+          if (childView) {
+            childView.remove();
+          }
         });
 
         //reset collections
         this.relatedVideos.reset();
         this.comments.reset();
+        this.searchResults.reset();
       }
     },
 
