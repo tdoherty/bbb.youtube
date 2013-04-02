@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="600a5bc0-2062-4336-9969-f56859159807" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/glyphicons-halflings-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/require.js" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\bg_hr.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\blacktocat.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\icon_download.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\images\sprite_download.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\javascripts\main.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\stylesheets\pygment_trac.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SandBox\bbb.youtube\stylesheets\stylesheet.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+    </list>
+    <ignored path="bbb.youtube.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364918939686" ignored="false" />
+    <file path="/.gitignore" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364576969189" ignored="false" />
+    <file path="/searchResults.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364593010308" ignored="false" />
+    <file path="/search.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364919122912" ignored="false" />
+    <file path="/search.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364584665297" ignored="false" />
+    <file path="/main-layout.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364925847259" ignored="false" />
+    <file path="/searchList.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364855016388" ignored="false" />
+    <file path="/item.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364594733672" ignored="false" />
+    <file path="/searchItem.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364594706611" ignored="false" />
+    <file path="/router.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364927370977" ignored="false" />
+    <file path="/require.config.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364597222132" ignored="false" />
+    <file path="/searchBar.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364844277874" ignored="false" />
+    <file path="/result.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364597569650" ignored="false" />
+    <file path="/video.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364601254006" ignored="false" />
+    <file path="/nowPlaying.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364599793593" ignored="false" />
+    <file path="/nowPlaying.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364921179232" ignored="false" />
+    <file path="/relatedList.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364602549813" ignored="false" />
+    <file path="/relatedList.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364602606044" ignored="false" />
+    <file path="/nowPlaying-layout.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364603516636" ignored="false" />
+    <file path="/comments.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364835310541" ignored="false" />
+    <file path="/index.css" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364840347695" ignored="false" />
+    <file path="/grunt.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364927771744" ignored="false" />
+    <file path="/app.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364850985817" ignored="false" />
+    <file path="/main.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364851051765" ignored="false" />
+    <file path="/home.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364926654971" ignored="false" />
+    <file path="/recentVideos.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364861350933" ignored="false" />
+    <file path="/recentList.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364920443746" ignored="false" />
+    <file path="/recentItem.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364918972637" ignored="false" />
+    <file path="/recentList.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364863355814" ignored="false" />
+    <file path="/contact.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364927228266" ignored="false" />
+    <file path="/contact.js" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364926131134" ignored="false" />
+    <file path="/link.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364926113549" ignored="false" />
+    <file path="/app.css" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364925789679" ignored="false" />
+    <file path="/home.html" changelist="600a5bc0-2062-4336-9969-f56859159807" time="1364927162651" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="bbb.youtube" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="params.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/params.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="164" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/views/contact/contactLinks.js" />
+        <option value="$PROJECT_DIR$/app/views/contact/contactLink.js" />
+        <option value="$PROJECT_DIR$/app/styles/app.css" />
+        <option value="$PROJECT_DIR$/app/templates/contact/link.html" />
+        <option value="$PROJECT_DIR$/app/views/contact/contact.js" />
+        <option value="$PROJECT_DIR$/app/collections/search/searchResults.js" />
+        <option value="$PROJECT_DIR$/app/templates/main-layout.html" />
+        <option value="$PROJECT_DIR$/app/templates/home.html" />
+        <option value="$PROJECT_DIR$/app/views/home/home.js" />
+        <option value="$PROJECT_DIR$/app/modules/home.js" />
+        <option value="$PROJECT_DIR$/app/templates/home/home.html" />
+        <option value="$PROJECT_DIR$/app/templates/contact/contact.html" />
+        <option value="$PROJECT_DIR$/app/router.js" />
+        <option value="$PROJECT_DIR$/app/views/search/searchList.js" />
+        <option value="$PROJECT_DIR$/dist/release/index.html" />
+        <option value="$PROJECT_DIR$/grunt.js" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbb.youtube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbb.youtube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bbb.youtube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\views\home" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\views\contact" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\views\nav" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\dist\debug" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\models\nowPlaying" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\SandBox\bbb.youtube" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\templates\home" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\views\search" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\collections\search" />
+      <recent name="C:\Projects\SandBox\bbb.youtube\app\collections\nowPlaying" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="600a5bc0-2062-4336-9969-f56859159807" name="Default" comment="" />
+      <created>1364576820763</created>
+      <updated>1364576820763</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2139808" sideWeight="0.67082536" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/params.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="164" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
