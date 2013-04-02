@@ -28,7 +28,7 @@ define(function(require) {
   });
 
   // Default View.
-  Module.Views.Layout = Backbone.View.extend({
+  Module.Views.Layout = Backbone.Layout.extend({
     template: "nowPlaying/nowPlaying-layout"
   });
 

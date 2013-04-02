@@ -120,7 +120,7 @@ define(function(require) {
       if (this.recentArray.length >= 10) {
         this.recentArray.pop();
       }
-      this.recentArray.push({
+      this.recentArray.unshift({
         hash: model.get('source'),
         title: model.get('title').$t
       });

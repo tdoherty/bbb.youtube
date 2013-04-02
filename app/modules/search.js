@@ -21,7 +21,7 @@ define(function(require) {
   });
 
   // Default View.
-  Search.Views.Layout = Backbone.View.extend({
+  Search.Views.Layout = Backbone.Layout.extend({
     template: 'search/search-layout'
   });
 
