@@ -200,17 +200,17 @@ module.exports = function(grunt) {
     // If you want to generate targeted `index.html` builds into the `dist/`
     // folders, uncomment the following configuration block and use the
     // conditionals inside `index.html`.
-    //targethtml: {
-    //  debug: {
-    //    src: "index.html",
-    //    dest: "dist/debug/index.html"
-    //  },
-    //
-    //  release: {
-    //    src: "index.html",
-    //    dest: "dist/release/index.html"
-    //  }
-    //},
+    targethtml: {
+      debug: {
+        src: "index.html",
+        dest: "dist/debug/index.html"
+      },
+
+      release: {
+        src: "index.html",
+        dest: "dist/release/index.html"
+      }
+    },
     
     // This task will copy assets into your build directory,
     // automatically.  This makes an entirely encapsulated build into
@@ -219,17 +219,19 @@ module.exports = function(grunt) {
       debug: {
         files: {
           "dist/debug/img/": "app/img/**"
+
 //          "dist/debug/app/": "app/**",
 //          "dist/debug/vendor/": "vendor/**"
         }
-      }//,
+      },
 
-//      release: {
-//        files: {
+      release: {
+        files: {
+          "dist/release/img/": "app/img/**"
 //          "dist/release/app/": "app/**",
 //          "dist/release/vendor/": "vendor/**"
-//        }
-//      }
+        }
+      }
     }
 
   });
@@ -239,7 +241,7 @@ module.exports = function(grunt) {
   // dist/debug/templates.js, compile all the application code into
   // dist/debug/require.js, and then concatenate the require/define shim
   // almond.js and dist/debug/templates.js into the require.js file.
-  grunt.registerTask("debug", "clean lint jst requirejs concat styles copy");
+  grunt.registerTask("debug", "clean lint jst requirejs concat styles targethtml copy");
 
   // The release task will run the debug tasks and then minify the
   // dist/debug/require.js file and CSS files.

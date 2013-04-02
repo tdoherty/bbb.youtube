@@ -1,9 +1,71 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["app/templates/contact/contact.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<img src="'+
+(avatar)+
+'" class="img-polaroid" style="float: left; margin-right:15px;">\r\n<div style="float:left; width: 800px;">\r\n    <h3>Tim Doherty</h3>\r\n\r\n    <p>I\'m a software engineer, avid SCUBA diver, amateur underwater photographer, and occasional musician living in\r\n        southern California. My passion is solving problems and building things with technology.</p>\r\n\r\n    <ul class="unstyled"></ul>\r\n</div>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/contact/link.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<a class="btn btn-small" href="'+
+(url)+
+'" target="'+
+(target)+
+'">'+
+(text)+
+'</a>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/home/home.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<h3>Backbone-Boilerplate Youtube Demo</h3>\r\n<p>\r\n    This is a demo created with Tim Branyen\'s <a href="https://github.com/tbranyen/backbone-boilerplate" target="_blank">Backbone-Boilerplate</a>,\r\n    a set of best practices and utilities for building Backbone.js applications.\r\n\r\n</p>\r\n        <p>The demo is a mimic of Youtube\'s search/now playing pages, start <a href="#/search">searching</a> and try it out.</p>';
+}
+return __p;
+};
+
 this["JST"]["app/templates/main-layout.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n            </button>\r\n            <a class="brand" href="#">Project name</a>\r\n\r\n            <div class="nav-collapse collapse">\r\n                <p class="navbar-text pull-right">\r\n                    Logged in as <a href="#" class="navbar-link">Username</a>\r\n                </p>\r\n                <ul class="nav">\r\n                    <li class="active"><a href="#">Home</a></li>\r\n                    <li><a href="#about">About</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li class="active"><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="search"></div>\r\n                    <div class="searchResults"></div>\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n';
+__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n        <span class="icon-bar"></span>\r\n        <span class="icon-bar"></span>\r\n        <span class="icon-bar"></span>\r\n        </button>\r\n        <a class="brand" href="#">bbb.youtube</a>\r\n\r\n        <div class="nav-collapse collapse">\r\n        <p class="navbar-text pull-right">\r\n        Logged in as <a href="#" class="navbar-link">Username</a>\r\n        </p>\r\n        <ul class="nav">\r\n        <li class="active"><a href="#">Home</a></li>\r\n        <li><a href="#search">Search</a></li>\r\n        <li><a href="#contact">Contact</a></li>\r\n        </ul>\r\n        </div>\r\n        <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li><a href="/">Home</a></li>\r\n                    <li><a href="#search">Search</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Recent Videos</li>\r\n                </ul>\r\n                <div class="nav-side"></div>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="content"></div>\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n';
+}
+return __p;
+};
+
+this["JST"]["app/templates/nav/recentItem.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<a href=\'#/video/'+
+(source)+
+'\'>\r\n    <span class="ux-thumb-wrap">\r\n        <span class="video-thumb ux-thumb yt-thumb-default-120 ">\r\n            <span class="yt-thumb-clip">\r\n                <span class="yt-thumb-clip-inner">\r\n                    <img width="120" alt="Thumbnail" src="'+
+(media$group.media$thumbnail[1].url)+
+'" >\r\n                    <span class="vertical-align">\r\n                </span>\r\n                </span>\r\n            </span>\r\n        </span>\r\n        <span class="video-time">'+
+(duration)+
+'</span>\r\n    </span>\r\n    <span class="title" title="'+
+(title.$t.substr(0, 30))+
+'">'+
+(title.$t.substr(0, 20))+
+'</span>\r\n    <span class="stat">by '+
+(author[0].name.$t)+
+'</span>\r\n    <span class="stat"> '+
+(yt$statistics.viewCount)+
+' views </span>\r\n</a>\r\n';
+}
+return __p;
+};
+
+this["JST"]["app/templates/nav/recentList.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<ul class="nav nav-list unstyled"></ul>';
 }
 return __p;
 };
@@ -33,7 +95,7 @@ return __p;
 this["JST"]["app/templates/nowPlaying/nowPlaying-layout.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n            </button>\r\n            <a class="brand" href="#">Project name</a>\r\n\r\n            <div class="nav-collapse collapse">\r\n                <p class="navbar-text pull-right">\r\n                    Logged in as <a href="#" class="navbar-link">Username</a>\r\n                </p>\r\n                <ul class="nav">\r\n                    <li class="active"><a href="#">Home</a></li>\r\n                    <li><a href="#about">About</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li class="active"><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="search"></div>\r\n\r\n\r\n                    <div style="clear: both">\r\n                        <div style="float:left;width:600px;">\r\n                            <div class=\'nowPlaying\'></div>\r\n                            <div class=\'comments\'></div>\r\n                        </div>\r\n                        <div style="float:left; margin-left:15px;width:300px;" class="related"></div>\r\n\r\n                    </div>\r\n\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n\r\n';
+__p+='<div class="search"></div>\r\n\r\n<div style="clear: both">\r\n    <div style="float:left;width:600px;">\r\n        <div class=\'nowPlaying\'></div>\r\n        <div class=\'comments\'></div>\r\n    </div>\r\n    <div style="float:left; margin-left:15px;width:300px;" class="related"></div>\r\n\r\n</div>\r\n\r\n';
 }
 return __p;
 };
@@ -110,6 +172,14 @@ this["JST"]["app/templates/search/list.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
 __p+='<div class="primary-col">\r\n    <ul class="unstyled">\r\n\r\n    </ul>\r\n</div>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/search/search-layout.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<div class="search"></div>\r\n<div class="searchResults"></div>\r\n';
 }
 return __p;
 };

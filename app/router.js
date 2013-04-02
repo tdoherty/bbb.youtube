@@ -107,7 +107,7 @@ define(function(require) {
 
     contact: function () {
       this.clean();
-      app.layout.insertView('.content', new home.Views.Contact()).render()
+      app.layout.insertView('.content', new home.Views.Contact()).render();
     },
 
 //--Event Handlers------------------------------------------------------------------------------------------------------

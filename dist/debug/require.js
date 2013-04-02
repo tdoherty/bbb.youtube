@@ -385,10 +385,72 @@ var requirejs, require, define;
 }());
 ;this["JST"] = this["JST"] || {};
 
+this["JST"]["app/templates/contact/contact.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<img src="'+
+(avatar)+
+'" class="img-polaroid" style="float: left; margin-right:15px;">\r\n<div style="float:left; width: 800px;">\r\n    <h3>Tim Doherty</h3>\r\n\r\n    <p>I\'m a software engineer, avid SCUBA diver, amateur underwater photographer, and occasional musician living in\r\n        southern California. My passion is solving problems and building things with technology.</p>\r\n\r\n    <ul class="unstyled"></ul>\r\n</div>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/contact/link.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<a class="btn btn-small" href="'+
+(url)+
+'" target="'+
+(target)+
+'">'+
+(text)+
+'</a>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/home/home.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<h3>Backbone-Boilerplate Youtube Demo</h3>\r\n<p>\r\n    This is a demo created with Tim Branyen\'s <a href="https://github.com/tbranyen/backbone-boilerplate" target="_blank">Backbone-Boilerplate</a>,\r\n    a set of best practices and utilities for building Backbone.js applications.\r\n\r\n</p>\r\n        <p>The demo is a mimic of Youtube\'s search/now playing pages, start <a href="#/search">searching</a> and try it out.</p>';
+}
+return __p;
+};
+
 this["JST"]["app/templates/main-layout.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n            </button>\r\n            <a class="brand" href="#">Project name</a>\r\n\r\n            <div class="nav-collapse collapse">\r\n                <p class="navbar-text pull-right">\r\n                    Logged in as <a href="#" class="navbar-link">Username</a>\r\n                </p>\r\n                <ul class="nav">\r\n                    <li class="active"><a href="#">Home</a></li>\r\n                    <li><a href="#about">About</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li class="active"><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="search"></div>\r\n                    <div class="searchResults"></div>\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n';
+__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n        <span class="icon-bar"></span>\r\n        <span class="icon-bar"></span>\r\n        <span class="icon-bar"></span>\r\n        </button>\r\n        <a class="brand" href="#">bbb.youtube</a>\r\n\r\n        <div class="nav-collapse collapse">\r\n        <p class="navbar-text pull-right">\r\n        Logged in as <a href="#" class="navbar-link">Username</a>\r\n        </p>\r\n        <ul class="nav">\r\n        <li class="active"><a href="#">Home</a></li>\r\n        <li><a href="#search">Search</a></li>\r\n        <li><a href="#contact">Contact</a></li>\r\n        </ul>\r\n        </div>\r\n        <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li><a href="/">Home</a></li>\r\n                    <li><a href="#search">Search</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Recent Videos</li>\r\n                </ul>\r\n                <div class="nav-side"></div>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="content"></div>\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n';
+}
+return __p;
+};
+
+this["JST"]["app/templates/nav/recentItem.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<a href=\'#/video/'+
+(source)+
+'\'>\r\n    <span class="ux-thumb-wrap">\r\n        <span class="video-thumb ux-thumb yt-thumb-default-120 ">\r\n            <span class="yt-thumb-clip">\r\n                <span class="yt-thumb-clip-inner">\r\n                    <img width="120" alt="Thumbnail" src="'+
+(media$group.media$thumbnail[1].url)+
+'" >\r\n                    <span class="vertical-align">\r\n                </span>\r\n                </span>\r\n            </span>\r\n        </span>\r\n        <span class="video-time">'+
+(duration)+
+'</span>\r\n    </span>\r\n    <span class="title" title="'+
+(title.$t.substr(0, 30))+
+'">'+
+(title.$t.substr(0, 20))+
+'</span>\r\n    <span class="stat">by '+
+(author[0].name.$t)+
+'</span>\r\n    <span class="stat"> '+
+(yt$statistics.viewCount)+
+' views </span>\r\n</a>\r\n';
+}
+return __p;
+};
+
+this["JST"]["app/templates/nav/recentList.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<ul class="nav nav-list unstyled"></ul>';
 }
 return __p;
 };
@@ -418,7 +480,7 @@ return __p;
 this["JST"]["app/templates/nowPlaying/nowPlaying-layout.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
-__p+='<div class="navbar navbar-inverse navbar-fixed-top">\r\n    <div class="navbar-inner">\r\n        <div class="container-fluid">\r\n            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n                <span class="icon-bar"></span>\r\n            </button>\r\n            <a class="brand" href="#">Project name</a>\r\n\r\n            <div class="nav-collapse collapse">\r\n                <p class="navbar-text pull-right">\r\n                    Logged in as <a href="#" class="navbar-link">Username</a>\r\n                </p>\r\n                <ul class="nav">\r\n                    <li class="active"><a href="#">Home</a></li>\r\n                    <li><a href="#about">About</a></li>\r\n                    <li><a href="#contact">Contact</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.nav-collapse -->\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class="container-fluid">\r\n    <div class="row-fluid">\r\n        <div class="span2">\r\n            <div class="well sidebar-nav">\r\n                <ul class="nav nav-list">\r\n                    <li class="nav-header">Sidebar</li>\r\n                    <li class="active"><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                    <li><a href="#">Link</a></li>\r\n                </ul>\r\n            </div>\r\n            <!--/.well -->\r\n        </div>\r\n        <!--/span-->\r\n        <div class="span10">\r\n            <div class="row-fluid">\r\n                <div class="span12">\r\n                    <h2>bbb.youtube</h2>\r\n\r\n                    <div class="search"></div>\r\n\r\n\r\n                    <div style="clear: both">\r\n                        <div style="float:left;width:600px;">\r\n                            <div class=\'nowPlaying\'></div>\r\n                            <div class=\'comments\'></div>\r\n                        </div>\r\n                        <div style="float:left; margin-left:15px;width:300px;" class="related"></div>\r\n\r\n                    </div>\r\n\r\n                </div>\r\n                <!--/span-->\r\n\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/span-->\r\n    </div>\r\n    <!--/row-->\r\n\r\n    <hr>\r\n\r\n    <footer>\r\n        <p>&copy; Company 2013</p>\r\n    </footer>\r\n\r\n</div>\r\n\r\n\r\n';
+__p+='<div class="search"></div>\r\n\r\n<div style="clear: both">\r\n    <div style="float:left;width:600px;">\r\n        <div class=\'nowPlaying\'></div>\r\n        <div class=\'comments\'></div>\r\n    </div>\r\n    <div style="float:left; margin-left:15px;width:300px;" class="related"></div>\r\n\r\n</div>\r\n\r\n';
 }
 return __p;
 };
@@ -495,6 +557,14 @@ this["JST"]["app/templates/search/list.html"] = function(obj){
 var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
 with(obj||{}){
 __p+='<div class="primary-col">\r\n    <ul class="unstyled">\r\n\r\n    </ul>\r\n</div>';
+}
+return __p;
+};
+
+this["JST"]["app/templates/search/search-layout.html"] = function(obj){
+var __p='';var print=function(){__p+=Array.prototype.join.call(arguments, '')};
+with(obj||{}){
+__p+='<div class="search"></div>\r\n<div class="searchResults"></div>\r\n';
 }
 return __p;
 };
@@ -7283,6 +7353,10 @@ define('app',[
 
       // Cache the refererence.
       return this.layout = layout;
+    },
+
+    close: function () {
+      delete window.JST; //remove global templates variable for GC
     }
   }, Backbone.Events);
 
@@ -7291,7 +7365,7 @@ define('app',[
 /**
  * RequireJS Module Definition - AMD 'sugar' syntax
  */
-define('collections/searchResults',['require','backbone'],function (require) {
+define('collections/search/searchResults',['require','backbone'],function (require) {
 
   //module dependencies
   var Backbone = require('backbone');
@@ -7317,7 +7391,7 @@ define('collections/searchResults',['require','backbone'],function (require) {
    }
 
   return Backbone.Collection.extend({
-    searchTerm: 'metheny',
+    searchTerm: '',
     startIndex: 1,
 
     url: function () {
@@ -7822,7 +7896,7 @@ define('backbone.modelbinder', ['backbone.modelbinder/Backbone.ModelBinder'], fu
 /**
  * RequireJS Module Definition - AMD 'sugar' syntax
  */
-define('views/searchBar',['require','jquery','backbone','backbone.modelbinder'],function (require) {
+define('views/search/searchBar',['require','jquery','backbone','backbone.modelbinder'],function (require) {
 
   //module dependencies
   var $ = require('jquery');
@@ -7869,7 +7943,7 @@ define('views/searchBar',['require','jquery','backbone','backbone.modelbinder'],
 /**
  * RequireJS Module Definition - AMD 'sugar' syntax
  */
-define('views/searchItem',['require','jquery','backbone'],function (require) {
+define('views/search/searchItem',['require','jquery','backbone'],function (require) {
 
   //module dependencies
   var $ = require('jquery');
@@ -7904,7 +7978,7 @@ define('views/searchItem',['require','jquery','backbone'],function (require) {
 /**
  * RequireJS Module Definition - AMD 'sugar' syntax
  */
-define('views/searchList',['require','jquery','backbone','./searchItem'],function (require) {
+define('views/search/searchList',['require','jquery','backbone','./searchItem'],function (require) {
 
   //module dependencies
   var $ = require('jquery');
@@ -7918,7 +7992,7 @@ define('views/searchList',['require','jquery','backbone','./searchItem'],functio
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.collection, 'sync', this.doIt);
+      this.listenTo(this.collection, 'sync', this.render);
     },
 
 //--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
@@ -7928,13 +8002,10 @@ define('views/searchList',['require','jquery','backbone','./searchItem'],functio
           model: item
         }));
       }, this);
-    },
+    }
 
 //------Event Handlers--------------------------------------------------------------------------------------------------
-    doIt: function () {
-      console.log('synced');
-      this.render();
-    }
+
 //------DOM Helpers-----------------------------------------------------------------------------------------------------
 
   });
@@ -7984,18 +8055,18 @@ define('models/search/searchBar',['require','backbone'],function (require) {
 
   return Backbone.Model.extend({
     defaults: {
-      searchTerm: 'metheny'
+      searchTerm: ''
     }
   });
 });
 
 // Search module
-define('modules/search',['require','app','../collections/searchResults','../views/searchBar','../views/searchList','../models/search/result','../models/search/searchBar'],function(require) {
+define('modules/search',['require','app','../collections/search/searchResults','../views/search/searchBar','../views/search/searchList','../models/search/result','../models/search/searchBar'],function(require) {
 
   var app = require('app');
-  var Collection = require('../collections/searchResults');
-  var SearchBarView = require('../views/searchBar');
-  var SearchListView = require('../views/searchList');
+  var Collection = require('../collections/search/searchResults');
+  var SearchBarView = require('../views/search/searchBar');
+  var SearchListView = require('../views/search/searchList');
   var SearchResultModel = require('../models/search/result');
   var SearchBarModel = require('../models/search/searchBar');
 
@@ -8013,7 +8084,7 @@ define('modules/search',['require','app','../collections/searchResults','../view
 
   // Default View.
   Search.Views.Layout = Backbone.Layout.extend({
-    template: "search/search"
+    template: 'search/search-layout'
   });
 
   Search.Views.List = SearchListView;
@@ -8032,7 +8103,18 @@ define('models/nowPlaying/nowPlaying',['require','backbone'],function (require) 
   //module dependencies
   var Backbone = require('backbone');
 
+  function getDuration(seconds) {
+    minutes = parseInt(seconds / 60, 10);
+    seconds = '' + (seconds % 60);
+    if (seconds.length === 1) {
+      seconds = '0' + seconds;
+    }
+    return minutes + ':' + seconds;
+  }
+
   return Backbone.Model.extend({
+
+    idAttribute: 'source',
 
     defaults: {
       source: '',
@@ -8051,8 +8133,8 @@ define('models/nowPlaying/nowPlaying',['require','backbone'],function (require) 
 
       var data = response.entry;
       var paths = data.id.$t.split('/');
-//      console.log(data);
-      data.source = paths[paths.length-1];
+      data.source = paths[paths.length - 1];
+      data.duration = getDuration(data.media$group.yt$duration.seconds);
 
       return data;
     }
@@ -8305,7 +8387,7 @@ define('views/nowPlaying/commentsList',['require','backbone','./commentsItem'],f
 });
 
 // Search module
-define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','../models/search/result','../models/nowPlaying/comment','../collections/nowPlaying/related','../collections/nowPlaying/comments','../views/searchBar','../views/nowPlaying/nowPlaying','../models/search/searchBar','../views/nowPlaying/relatedList','../views/nowPlaying/commentsList'],function(require) {
+define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','../models/search/result','../models/nowPlaying/comment','../collections/nowPlaying/related','../collections/nowPlaying/comments','../views/search/searchBar','../views/nowPlaying/nowPlaying','../models/search/searchBar','../views/nowPlaying/relatedList','../views/nowPlaying/commentsList'],function(require) {
 
   var app = require('app');
   var Model = require('../models/nowPlaying/nowPlaying');
@@ -8313,7 +8395,7 @@ define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','
   var CommentModel = require('../models/nowPlaying/comment');
   var RelatedVideosCollection = require('../collections/nowPlaying/related');
   var CommentsCollection = require('../collections/nowPlaying/comments');
-  var SearchBarView = require('../views/searchBar');
+  var SearchBarView = require('../views/search/searchBar');
   var NowPlayingView = require('../views/nowPlaying/nowPlaying');
   var SearchBarModel = require('../models/search/searchBar');
   var RelatedVideosView = require('../views/nowPlaying/relatedList');
@@ -8335,7 +8417,7 @@ define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','
 
   // Default View.
   Module.Views.Layout = Backbone.Layout.extend({
-    template: "search/search"
+    template: "nowPlaying/nowPlaying-layout"
   });
 
   Module.Views.NowPlaying = NowPlayingView;
@@ -8348,16 +8430,282 @@ define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','
 
 });
 
-define('router',['require','backbone','lodash','app','modules/search','modules/nowPlaying'],function(require) {
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/contact/contactLink',['require','backbone'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+    template: 'contact/link',
+
+    tagName: 'li',
+    className: 'contactLink',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+
+    },
+
+    serialize: function () {
+      return this.model;//.toJSON();
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/contact/contact',['require','backbone','underscore','./contactLink'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+  var _ = require('underscore');
+  var ItemView = require('./contactLink');
+
+
+  return Backbone.View.extend({
+
+//--Properties----------------------------------------------------------------------------------------------------------
+    template: 'contact/contact',
+
+    data: {
+      avatar: 'https://fbexternal-a.akamaihd.net/safe_image.php?d=AQDAacwkOhqzeWDH&w=155&h=114&url=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F481d556f479c71e5cc06f1493d4f6613%3Fs%3D420%26d%3Dhttps%253A%252F%252Fa248.e.akamai.net%252Fassets.github.com%252Fimages%252Fgravatars%252Fgravatar-user-420.png',
+      links: [
+        { text: 'Linkedin', target: '_blank', url: 'http://www.linkedin.com/in/timdoherty'},
+        { text: 'Blog', target: '_blank', url: 'http://blog.dohertycomputing.com'},
+        { text: 'Underwater Photos', target: '_blank', url: 'http://www.flickr.com/photos/hawaiidiveadventures/sets/72157622322603331/'},
+        { text: 'Website', target: '_blank', url: 'http://dohertycomputing.com'},
+        { text: 'Email', target: '', url: 'mailto:tim@dohertycomputing.com'}
+      ]
+    },
+
+//--Backbone implementations--------------------------------------------------------------------------------------------
+    initialize: function () {
+
+    },
+
+ //--Backbone.Layoutmanager implementations-----------------------------------------------------------------------------
+    serialise: function () {
+      return this.data;
+    },
+
+    beforeRender: function() {
+      _.each(this.data.links, function(item) {
+        this.insertView("ul.unstyled", new ItemView({
+          model: item
+        }));
+      }, this);
+    }
+
+ //--Event Handlers-----------------------------------------------------------------------------------------------------
+
+//--DOM Helpers---------------------------------------------------------------------------------------------------------
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/home/home',['require','backbone'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+  template: 'home/home',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+    },
+
+//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
+    beforeRender: function() {
+
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+// Home module
+define('modules/home',['require','app','../views/contact/contact','../views/home/home'],function(require) {
+
+  var app = require('app');
+  var ContactView = require('../views/contact/contact');
+  var HomeView = require('../views/home/home');
+
+  // Create a new module.
+  var Home = app.module();
+
+  // Default Model.
+  Home.Model = Backbone.Model.extend({
+  
+  });
+
+  // Default Collection.
+  Home.Collection = Backbone.Collection.extend({
+    model: Home.Model
+  });
+
+  // Default View.
+  Home.Views.Layout = Backbone.Layout.extend({
+    template: "home"
+  });
+
+  Home.Views.Contact = ContactView;
+  Home.Views.Home = HomeView;
+
+
+  // Return the module for AMD compliance.
+  return Home;
+
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('collections/nav/recentVideos',['require','backbone'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+
+  return Backbone.Collection.extend({
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/nav/recentItem',['require','jquery','backbone'],function (require) {
+
+  //module dependencies
+  var $ = require('jquery');
+  var Backbone = require('backbone');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+    template: 'nav/recentItem',
+
+    tagName: 'li',
+    className: 'video-list-item',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+      this.listenTo(this.model, {
+        'change': this.render
+      });
+    },
+
+    serialize: function () {
+      return this.model.toJSON();
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/nav/recentList',['require','backbone','./recentItem'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+  var ItemView = require('./recentItem');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+  template: 'nav/recentList',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+      this.listenTo(this.collection, 'add', this.render);
+    },
+
+//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
+    beforeRender: function() {
+      this.collection.each(function(item) {
+        this.insertView("ul.unstyled", new ItemView({
+          model: item
+        }));
+      }, this);
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+// Recentvideos module
+define('modules/recentVideos',['require','app','../collections/nav/recentVideos','../views/nav/recentList'],function(require) {
+
+  var app = require('app');
+  var RecentVideoCollection = require('../collections/nav/recentVideos');
+  var RecentVideosListView = require('../views/nav/recentList');
+
+  // Create a new module.
+  var Recentvideos = app.module();
+
+  // Default Model.
+  Recentvideos.Model = Backbone.Model.extend({
+  
+  });
+
+  // Default Collection.
+  Recentvideos.Collection = RecentVideoCollection.extend({
+    model: Recentvideos.Model
+  });
+
+  Recentvideos.Views.List = RecentVideosListView;
+
+  // Default View.
+//  Recentvideos.Views.Layout = Backbone.Layout.extend({
+//    template: "recentvideos"
+//  });
+
+  // Return the module for AMD compliance.
+  return Recentvideos;
+
+});
+
+define('router',['require','backbone','lodash','app','modules/search','modules/nowPlaying','modules/home','modules/recentVideos'],function(require) {
 
   var Backbone = require('backbone');
   var _ = require('lodash');
   var app = require('app');
   var search = require('modules/search');
   var nowPlaying = require('modules/nowPlaying');
+  var home = require('modules/home');
+  var recentVideos = require('modules/recentVideos');
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
+
+    recentArray: [],
 
     initialize: function () {
 
@@ -8366,7 +8714,8 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
       var collections = {
         searchResults: new search.Collection(),
         relatedVideos: new nowPlaying.RelatedVideosCollection(),
-        comments: new nowPlaying.CommentsCollection()
+        comments: new nowPlaying.CommentsCollection(),
+        recentVideos: new recentVideos.Collection()
       };
 
       var models = {
@@ -8374,21 +8723,57 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
         searchBar: new search.SearchBarModel()
       };
 
+
       //make collections and models available to router
       _.extend(this, collections, models);
 
+      this.nowPlaying.on('sync', this.getRelatedContent, this);
+
       Backbone.on('global:search', this.onSearch, this);
+
+      app.useLayout('main-layout').setViews({
+//        '.navbar-inner': new home.Views.TopNav(),
+        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos }),
+        '.content': new home.Views.Home()
+      }).render();
     },
 
     routes: {
-      "": "index",
+      '': "index",
+      'search': 'search',
+      'search/:term': 'search',
       'video/:id': 'displayVideo',
-      'search/:term': 'search'
+      'contact': 'contact'
     },
 
 //--Route Handlers------------------------------------------------------------------------------------------------------
     index: function() {
-      this.navigate('search/' + this.searchResults.searchTerm, {trigger: true});
+      this.clean();
+      app.layout.insertView('.content', new home.Views.Home()).render();
+//      var fragment = (this.searchResults.searchTerm ? '/' + this.searchResults.searchTerm : '');
+//      this.navigate('search' + fragment, {trigger: true});
+    },
+
+    search: function (term) {
+      term = term || this.searchBar.get('searchTerm');
+
+      this.clean();
+      var l = new search.Views.Layout();
+
+      l.setViews({
+        ".search": new search.Views.SearchBar({ model: this.searchBar }),
+        ".searchResults": new search.Views.List({ collection: this.searchResults })
+      });
+
+      app.layout.insertView('.content', l).render();
+
+      this.searchResults.searchTerm = term;
+      this.searchBar.set('searchTerm', term);
+
+      if (term) {
+        this.navigate('search/' + term, {trigger: false});
+        this.searchResults.fetch({ dataType: 'jsonp' });
+      }
     },
 
     displayVideo: function (id) {
@@ -8396,44 +8781,35 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
       if (app.layout && app.layout.options.template !== 'nowPlaying/nowPlaying-layout') {
         this.clean();
       }
-      app.useLayout("nowPlaying/nowPlaying-layout").setViews({
+
+      var l = new nowPlaying.Views.Layout();
+      l.setViews({
         ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
         ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
         ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
         ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
-      }).render().then(function () {
+      });
+
+      app.layout.insertView('.content',l).render().then(function () {
           self.nowPlaying.videoSource = id;
           self.nowPlaying.fetch({
-            dataType: 'jsonp',
-            success: self.nowPlayingExtras
+            dataType: 'jsonp'
           });
         }
       );
-//      app.layout.on('global:search', this.onSearch, this);
     },
 
-    search: function (term) {
+    contact: function () {
       this.clean();
-      app.useLayout("main-layout").setViews({
-        ".search": new search.Views.SearchBar({ model: this.searchBar }),
-        ".searchResults": new search.Views.List({ collection: this.searchResults })
-      }).render();
-
-      this.searchResults.searchTerm = term;
-      this.searchResults.fetch({ dataType: 'jsonp' });
+      app.layout.insertView('.content', new home.Views.Contact()).render();
     },
 
-//--Methods-------------------------------------------------------------------------------------------------------------
-    getRelatedContent: function (model, response, options) {
-      //TODO: fetch comments and related videos
-      this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
-      this.relatedVideos.fetch({ dataType: 'jsonp' });
-      this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
-      this.comments.fetch({ dataType: 'jsonp' });
-    },
-
+//--Event Handlers------------------------------------------------------------------------------------------------------
     onSearch: function(searchTerm) {
-      if (app.layout.options.template === 'main-layout') {
+      var contentView = app.layout.getViews('.content');
+
+
+      if (Backbone.history.fragment.contains('search/')) {
         this.searchResults.searchTerm = searchTerm;
         this.searchResults.fetch({ dataType: 'jsonp' });
         this.navigate('search/' + searchTerm, {trigger: false});
@@ -8442,19 +8818,46 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
       }
     },
 
+
+//--Methods-------------------------------------------------------------------------------------------------------------
+    getRelatedContent: function (model, response, options) {
+      //TODO: fetch comments and related videos
+      this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
+      this.relatedVideos.fetch({ dataType: 'jsonp' });
+      this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
+      this.comments.fetch({ dataType: 'jsonp' });
+
+      if (this.recentVideos.length >= 10) {
+        this.recentVideos.pop();
+      }
+      this.recentVideos.unshift(new nowPlaying.Model(model.toJSON()));
+
+      console.log('wtf');
+    },
+
     //teardown current layout
     clean: function () {
       if (app.layout) {
         //remove current child views
-        app.layout.getViews().each(function (childView) {
-          childView.remove();
+        app.layout.getViews('.content').each(function (childView) {
+          if (childView) {
+            childView.remove();
+          }
         });
 
         //reset collections
         this.relatedVideos.reset();
         this.comments.reset();
+        this.searchResults.reset();
       }
+    },
+
+    close: function () {
+      this.nowPlaying.off();
+      Backbone.off();
+      app.layout.remove();
     }
+
   });
 
   return Router;
@@ -8500,6 +8903,11 @@ function(app, Router) {
       // calls this anyways.  The fragment is sliced from the root.
       Backbone.history.navigate(href.attr, true);
     }
+  });
+
+  $(window).on('beforeunload', function() {
+    app.router.close();
+    app.close();
   });
 
 });
