@@ -27,7 +27,7 @@ define(function (require) {
    }
 
   return Backbone.Collection.extend({
-    searchTerm: 'metheny',
+    searchTerm: '',
     startIndex: 1,
 
     url: function () {

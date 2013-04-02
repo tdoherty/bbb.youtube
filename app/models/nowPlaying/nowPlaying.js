@@ -6,7 +6,18 @@ define(function (require) {
   //module dependencies
   var Backbone = require('backbone');
 
+  function getDuration(seconds) {
+    minutes = parseInt(seconds / 60, 10);
+    seconds = '' + (seconds % 60);
+    if (seconds.length === 1) {
+      seconds = '0' + seconds;
+    }
+    return minutes + ':' + seconds;
+  }
+
   return Backbone.Model.extend({
+
+    idAttribute: 'source',
 
     defaults: {
       source: '',
@@ -25,8 +36,8 @@ define(function (require) {
 
       var data = response.entry;
       var paths = data.id.$t.split('/');
-//      console.log(data);
-      data.source = paths[paths.length-1];
+      data.source = paths[paths.length - 1];
+      data.duration = getDuration(data.media$group.yt$duration.seconds);
 
       return data;
     }

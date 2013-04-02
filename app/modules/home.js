@@ -1,11 +1,9 @@
 // Home module
-define([
-  // Application.
-  "app"
-],
+define(function(require) {
 
-// Map dependencies from above array.
-function(app) {
+  var app = require('app');
+  var ContactView = require('../views/contact/contact');
+  var HomeView = require('../views/home/home');
 
   // Create a new module.
   var Home = app.module();
@@ -25,13 +23,8 @@ function(app) {
     template: "home"
   });
 
-  Home.Views.TopNav = Backbone.View.extend({
-
-  });
-
-  Home.Views.SidebarNav = Backbone.View.extend({
-
-  });
+  Home.Views.Contact = ContactView;
+  Home.Views.Home = HomeView;
 
 
   // Return the module for AMD compliance.

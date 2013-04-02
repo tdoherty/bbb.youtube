@@ -260,3 +260,12 @@ body {
         padding-right: 5px;
     }
 }
+
+.contactLink {
+    margin-bottom:10px;
+}
+
+.contactLink a {
+    width: 105px;
+    text-align: left;
+}

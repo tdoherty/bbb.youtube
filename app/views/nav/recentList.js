@@ -12,21 +12,15 @@ define(function (require) {
 //------Properties------------------------------------------------------------------------------------------------------
   template: 'nav/recentList',
 
-//    tagName: 'ul',
-//    className: 'nav nav-list',
-
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.collection, 'reset', function () {
-        console.log('reset');
-        this.render();
-      });
+      this.listenTo(this.collection, 'add', this.render);
     },
 
 //--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
     beforeRender: function() {
       this.collection.each(function(item) {
-        this.insertView("ul.nav-list", new ItemView({
+        this.insertView("ul.unstyled", new ItemView({
           model: item
         }));
       }, this);

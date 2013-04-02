@@ -8,7 +8,7 @@ define(function (require) {
 
   return Backbone.Model.extend({
     defaults: {
-      searchTerm: 'metheny'
+      searchTerm: ''
     }
   });
 });

@@ -38,21 +38,48 @@ define(function(require) {
       Backbone.on('global:search', this.onSearch, this);
 
       app.useLayout('main-layout').setViews({
-        '.navbar-inner': new home.Views.TopNav(),
-        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos })
-//        '.content': l
+//        '.navbar-inner': new home.Views.TopNav(),
+        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos }),
+        '.content': new home.Views.Home()
       }).render();
     },
 
     routes: {
-      "": "index",
+      '': "index",
+      'search': 'search',
+      'search/:term': 'search',
       'video/:id': 'displayVideo',
-      'search/:term': 'search'
+      'contact': 'contact'
     },
 
 //--Route Handlers------------------------------------------------------------------------------------------------------
     index: function() {
-      this.navigate('search/' + this.searchResults.searchTerm, {trigger: true});
+      this.clean();
+      app.layout.insertView('.content', new home.Views.Home()).render();
+//      var fragment = (this.searchResults.searchTerm ? '/' + this.searchResults.searchTerm : '');
+//      this.navigate('search' + fragment, {trigger: true});
+    },
+
+    search: function (term) {
+      term = term || this.searchBar.get('searchTerm');
+
+      this.clean();
+      var l = new search.Views.Layout();
+
+      l.setViews({
+        ".search": new search.Views.SearchBar({ model: this.searchBar }),
+        ".searchResults": new search.Views.List({ collection: this.searchResults })
+      });
+
+      app.layout.insertView('.content', l).render();
+
+      this.searchResults.searchTerm = term;
+      this.searchBar.set('searchTerm', term);
+
+      if (term) {
+        this.navigate('search/' + term, {trigger: false});
+        this.searchResults.fetch({ dataType: 'jsonp' });
+      }
     },
 
     displayVideo: function (id) {
@@ -78,20 +105,9 @@ define(function(require) {
       );
     },
 
-    search: function (term) {
+    contact: function () {
       this.clean();
-      var l = new search.Views.Layout();
-
-      l.setViews({
-        ".search": new search.Views.SearchBar({ model: this.searchBar }),
-        ".searchResults": new search.Views.List({ collection: this.searchResults })
-      });
-
-      app.layout.insertView('.content',l).render();
-
-      this.searchResults.searchTerm = term;
-      this.searchBar.set('searchTerm', term);
-      this.searchResults.fetch({ dataType: 'jsonp' });
+      app.layout.insertView('.content', new home.Views.Contact()).render()
     },
 
 //--Event Handlers------------------------------------------------------------------------------------------------------
@@ -117,15 +133,12 @@ define(function(require) {
       this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
       this.comments.fetch({ dataType: 'jsonp' });
 
-      if (this.recentArray.length >= 10) {
-        this.recentArray.pop();
+      if (this.recentVideos.length >= 10) {
+        this.recentVideos.pop();
       }
-      this.recentArray.unshift({
-        hash: model.get('source'),
-        title: model.get('title').$t
-      });
+      this.recentVideos.unshift(new nowPlaying.Model(model.toJSON()));
 
-      this.recentVideos.reset(this.recentArray);
+      console.log('wtf');
     },
 
     //teardown current layout
