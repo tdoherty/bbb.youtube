@@ -16,11 +16,11 @@ define(function (require) {
     className: 'video-list-item',
 
 //------Backbone implementations----------------------------------------------------------------------------------------
-    initialize: function () {
-      this.listenTo(this.model, {
-        'change': this.render
-      });
-    },
+//    initialize: function () {
+//      this.listenTo(this.model, {
+//        'change': this.render
+//      });
+//    },
 
     serialize: function () {
       return this.model.toJSON();

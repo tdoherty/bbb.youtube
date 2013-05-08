@@ -33,6 +33,15 @@ define(function (require) {
 //        this.startIndex + '&alt=json-in-script';
 //    },
 
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Collection.prototype.fetch.call(this, opts)
+    },
+
+
     parse: function (response) {
       var entries = response.feed.entry;
       processEntries(entries);

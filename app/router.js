@@ -3,10 +3,11 @@ define(function(require) {
   var Backbone = require('backbone');
   var _ = require('lodash');
   var app = require('app');
+  var home = require('modules/home');
   var search = require('modules/search');
   var nowPlaying = require('modules/nowPlaying');
-  var home = require('modules/home');
   var recentVideos = require('modules/recentVideos');
+  var contact = require('modules/contact');
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -29,7 +30,6 @@ define(function(require) {
         searchBar: new search.SearchBarModel()
       };
 
-
       //make collections and models available to router
       _.extend(this, collections, models);
 
@@ -39,9 +39,8 @@ define(function(require) {
 
       app.useLayout('main-layout').setViews({
 //        '.navbar-inner': new home.Views.TopNav(),
-        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos }),
-        '.content': new home.Views.Home()
-      }).render();
+        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos })
+      }); //.render();
     },
 
     routes: {
@@ -54,10 +53,12 @@ define(function(require) {
 
 //--Route Handlers------------------------------------------------------------------------------------------------------
     index: function() {
-      this.clean();
-      app.layout.insertView('.content', new home.Views.Home()).render();
-//      var fragment = (this.searchResults.searchTerm ? '/' + this.searchResults.searchTerm : '');
-//      this.navigate('search' + fragment, {trigger: true});
+      app.layout.setView('.content', new home.Views.Home());
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
     },
 
     search: function (term) {
@@ -71,53 +72,72 @@ define(function(require) {
         ".searchResults": new search.Views.List({ collection: this.searchResults })
       });
 
-      app.layout.insertView('.content', l).render();
+      app.layout.setView('.content', l);
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
 
       this.searchResults.searchTerm = term;
       this.searchBar.set('searchTerm', term);
 
       if (term) {
         this.navigate('search/' + term, {trigger: false});
-        this.searchResults.fetch({ dataType: 'jsonp' });
+        this.searchResults.fetch();
       }
     },
 
     displayVideo: function (id) {
       var self = this;
-      if (app.layout && app.layout.options.template !== 'nowPlaying/nowPlaying-layout') {
-        this.clean();
+      var contentView = app.layout.getView('.content');
+
+      this.clean();
+
+      if (!contentView || contentView.options.template !== 'nowPlaying/nowPlaying-layout'){
+        var l = new nowPlaying.Views.Layout();
+        l.setViews({
+          ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
+          ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
+          ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
+          ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
+        });
+
+        app.layout.setView('.content', l);
+        if (app.layout.__manager__.hasRendered)     {
+          app.layout.getView('.content').render().then(getData);
+          console.log('nowPlaying - content rendered');
+        } else {
+          app.layout.render().then(getData);
+          console.log('nowPlaying - app rendered');
+        }
+      } else {
+        getData();
       }
 
-      var l = new nowPlaying.Views.Layout();
-      l.setViews({
-        ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
-        ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
-        ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
-        ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
-      });
-
-      app.layout.insertView('.content',l).render().then(function () {
-          self.nowPlaying.videoSource = id;
-          self.nowPlaying.fetch({
-            dataType: 'jsonp'
-          });
-        }
-      );
+      function getData() {
+        self.nowPlaying.videoSource = id;
+        self.nowPlaying.fetch();
+      }
     },
 
     contact: function () {
       this.clean();
-      app.layout.insertView('.content', new home.Views.Contact()).render();
+      app.layout.setView('.content', new contact.Views.Contact());
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
     },
 
 //--Event Handlers------------------------------------------------------------------------------------------------------
     onSearch: function(searchTerm) {
       var contentView = app.layout.getViews('.content');
 
-
       if (Backbone.history.fragment.contains('search/')) {
         this.searchResults.searchTerm = searchTerm;
-        this.searchResults.fetch({ dataType: 'jsonp' });
+        this.searchResults.fetch();
         this.navigate('search/' + searchTerm, {trigger: false});
       }else {
         this.navigate('search/' + searchTerm, {trigger: true});
@@ -129,9 +149,9 @@ define(function(require) {
     getRelatedContent: function (model, response, options) {
       //TODO: fetch comments and related videos
       this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
-      this.relatedVideos.fetch({ dataType: 'jsonp' });
+      this.relatedVideos.fetch();
       this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
-      this.comments.fetch({ dataType: 'jsonp' });
+      this.comments.fetch();
 
       if (this.recentVideos.length >= 10) {
         this.recentVideos.pop();
@@ -143,19 +163,10 @@ define(function(require) {
 
     //teardown current layout
     clean: function () {
-      if (app.layout) {
-        //remove current child views
-        app.layout.getViews('.content').each(function (childView) {
-          if (childView) {
-            childView.remove();
-          }
-        });
-
         //reset collections
         this.relatedVideos.reset();
         this.comments.reset();
         this.searchResults.reset();
-      }
     },
 
     close: function () {

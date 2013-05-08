@@ -16,9 +16,9 @@ define(function (require) {
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.model, {
-        'change': this.render
-      });
+//      this.listenTo(this.model, {
+//        'change': this.render
+//      });
     },
 
     serialize: function () {

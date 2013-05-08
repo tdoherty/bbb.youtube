@@ -32,6 +32,14 @@ define(function (require) {
       return 'http://gdata.youtube.com/feeds/videos/' + this.videoSource + '?format=5&alt=json-in-script';
     },
 
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Model.prototype.fetch.call(this, opts)
+    },
+
     parse: function (response) {
 
       var data = response.entry;

@@ -13,31 +13,28 @@ define(function(require) {
   var RelatedVideosView = require('../views/nowPlaying/relatedList');
   var CommentsListView = require('../views/nowPlaying/commentsList');
 
-  // Create a new module.
-  var Module = app.module();
-
-  // Default Model.
-  Module.Model = Model;
-  Module.SearchBarModel = SearchBarModel;
-  Module.RelatedVideosCollection = RelatedVideosCollection.extend({
-    model: SearchResultModel
-  });
-
-  Module.CommentsCollection = CommentsCollection.extend({
-    model: CommentModel
-  });
-
-  // Default View.
-  Module.Views.Layout = Backbone.Layout.extend({
-    template: "nowPlaying/nowPlaying-layout"
-  });
-
-  Module.Views.NowPlaying = NowPlayingView;
-  Module.Views.Comments = CommentsListView;
-  Module.Views.Related = RelatedVideosView;
-  Module.Views.SearchBar = SearchBarView;
+  var mod = {
+    Model: Model,
+    SearchBarModel: SearchBarModel,
+    RelatedVideosCollection: RelatedVideosCollection.extend({
+      model: SearchResultModel
+    }),
+    CommentsCollection: CommentsCollection.extend({
+      model: CommentModel
+    }),
+    Views: {
+      // Default View.
+      Layout: Backbone.Layout.extend({
+        template: "nowPlaying/nowPlaying-layout"
+      }),
+      NowPlaying: NowPlayingView,
+      Comments: CommentsListView,
+      Related: RelatedVideosView,
+      SearchBar: SearchBarView
+    }
+  };
 
   // Return the module for AMD compliance.
-  return Module;
+  return app.module(mod);
 
-});
+ });

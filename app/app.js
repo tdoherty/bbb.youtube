@@ -14,7 +14,8 @@ define([
 
   //Configure underscore (lodash) templates to use '{{}}'
   _.templateSettings = {
-    interpolate : /\{\{(.+?)\}\}/g
+    interpolate : /\{\{(.+?)\}\}/g,
+    evaluate : /\{%(.+?)%\}/g
   };
 
   // Configure LayoutManager with Backbone Boilerplate defaults.

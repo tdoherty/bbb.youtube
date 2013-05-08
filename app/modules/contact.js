@@ -1,8 +1,8 @@
-// Home module
-define(function(require) {
+// Contact module
+define(function (require) {
 
   var app = require('app');
-  var HomeView = require('../views/home/home');
+  var ContactView = require('../views/contact/contact');
 
   // Create a new module.
   var mod = app.module();
@@ -18,12 +18,12 @@ define(function(require) {
   });
 
   // Default View.
-  mod.Views.Layout = Backbone.Layout.extend({
-    template: "home"
-  });
-
-  mod.Views.Home = HomeView;
-
+  mod.Views = {
+    Layout: Backbone.Layout.extend({
+      template: "contact"
+    }),
+    Contact: ContactView
+  };
 
   // Return the module for AMD compliance.
   return mod;

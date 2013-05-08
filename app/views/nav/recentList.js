@@ -19,6 +19,7 @@ define(function (require) {
 
 //--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
     beforeRender: function() {
+      console.log(this.cid + ' rendered');
       this.collection.each(function(item) {
         this.insertView("ul.unstyled", new ItemView({
           model: item
