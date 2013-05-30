@@ -7294,7 +7294,8 @@ define('app',[
 
   //Configure underscore (lodash) templates to use '{{}}'
   _.templateSettings = {
-    interpolate : /\{\{(.+?)\}\}/g
+    interpolate : /\{\{(.+?)\}\}/g,
+    evaluate : /\{%(.+?)%\}/g
   };
 
   // Configure LayoutManager with Backbone Boilerplate defaults.
@@ -7365,6 +7366,67 @@ define('app',[
 /**
  * RequireJS Module Definition - AMD 'sugar' syntax
  */
+define('views/home/home',['require','backbone'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+  template: 'home/home',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+    },
+
+//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
+    beforeRender: function() {
+
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+// Home module
+define('modules/home',['require','app','../views/home/home'],function(require) {
+
+  var app = require('app');
+  var HomeView = require('../views/home/home');
+
+  // Create a new module.
+  var mod = app.module();
+
+  // Default Model.
+  mod.Model = Backbone.Model.extend({
+  
+  });
+
+  // Default Collection.
+  mod.Collection = Backbone.Collection.extend({
+    model: mod.Model
+  });
+
+  // Default View.
+  mod.Views.Layout = Backbone.Layout.extend({
+    template: "home"
+  });
+
+  mod.Views.Home = HomeView;
+
+
+  // Return the module for AMD compliance.
+  return mod;
+
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
 define('collections/search/searchResults',['require','backbone'],function (require) {
 
   //module dependencies
@@ -7397,6 +7459,14 @@ define('collections/search/searchResults',['require','backbone'],function (requi
     url: function () {
       return 'http://gdata.youtube.com/feeds/videos?vq=' + this.searchTerm + '&format=5&max-results=20&start-index=' +
         this.startIndex + '&alt=json-in-script';
+    },
+
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Collection.prototype.fetch.call(this, opts)
     },
 
     parse: function (response) {
@@ -8129,6 +8199,14 @@ define('models/nowPlaying/nowPlaying',['require','backbone'],function (require) 
       return 'http://gdata.youtube.com/feeds/videos/' + this.videoSource + '?format=5&alt=json-in-script';
     },
 
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Model.prototype.fetch.call(this, opts)
+    },
+
     parse: function (response) {
 
       var data = response.entry;
@@ -8191,6 +8269,15 @@ define('collections/nowPlaying/related',['require','backbone'],function (require
 //        this.startIndex + '&alt=json-in-script';
 //    },
 
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Collection.prototype.fetch.call(this, opts)
+    },
+
+
     parse: function (response) {
       var entries = response.feed.entry;
       processEntries(entries);
@@ -8209,6 +8296,14 @@ define('collections/nowPlaying/comments',['require','backbone'],function (requir
   var Backbone = require('backbone');
 
   return Backbone.Collection.extend({
+    fetch: function (options) {
+      var self = this,
+        opts = _.extend({}, options || {});
+
+      opts.dataType = 'jsonp';
+      Backbone.Collection.prototype.fetch.call(this, opts)
+    },
+
     parse: function (response) {
       return response.feed.entry;
     }
@@ -8228,12 +8323,10 @@ define('views/nowPlaying/nowPlaying',['require','backbone'],function (require) {
 //------Properties------------------------------------------------------------------------------------------------------
     template: 'nowPlaying/nowPlaying',
 
-//    tagName: 'li',
-
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
       this.listenTo(this.model, {
-        'change': this.render
+        'sync': this.render
       });
     },
 
@@ -8266,9 +8359,9 @@ define('views/nowPlaying/relatedItem',['require','backbone'],function (require) 
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.model, {
-        'change': this.render
-      });
+//      this.listenTo(this.model, {
+//        'change': this.render
+//      });
     },
 
     serialize: function () {
@@ -8335,9 +8428,9 @@ define('views/nowPlaying/commentsItem',['require','backbone'],function (require)
 
 //------Backbone implementations----------------------------------------------------------------------------------------
     initialize: function () {
-      this.listenTo(this.model, {
-        'change': this.render
-      });
+//      this.listenTo(this.model, {
+//        'change': this.render
+//      });
     },
 
     serialize: function () {
@@ -8401,32 +8494,145 @@ define('modules/nowPlaying',['require','app','../models/nowPlaying/nowPlaying','
   var RelatedVideosView = require('../views/nowPlaying/relatedList');
   var CommentsListView = require('../views/nowPlaying/commentsList');
 
-  // Create a new module.
-  var Module = app.module();
-
-  // Default Model.
-  Module.Model = Model;
-  Module.SearchBarModel = SearchBarModel;
-  Module.RelatedVideosCollection = RelatedVideosCollection.extend({
-    model: SearchResultModel
-  });
-
-  Module.CommentsCollection = CommentsCollection.extend({
-    model: CommentModel
-  });
-
-  // Default View.
-  Module.Views.Layout = Backbone.Layout.extend({
-    template: "nowPlaying/nowPlaying-layout"
-  });
-
-  Module.Views.NowPlaying = NowPlayingView;
-  Module.Views.Comments = CommentsListView;
-  Module.Views.Related = RelatedVideosView;
-  Module.Views.SearchBar = SearchBarView;
+  var mod = {
+    Model: Model,
+    SearchBarModel: SearchBarModel,
+    RelatedVideosCollection: RelatedVideosCollection.extend({
+      model: SearchResultModel
+    }),
+    CommentsCollection: CommentsCollection.extend({
+      model: CommentModel
+    }),
+    Views: {
+      // Default View.
+      Layout: Backbone.Layout.extend({
+        template: "nowPlaying/nowPlaying-layout"
+      }),
+      NowPlaying: NowPlayingView,
+      Comments: CommentsListView,
+      Related: RelatedVideosView,
+      SearchBar: SearchBarView
+    }
+  };
 
   // Return the module for AMD compliance.
-  return Module;
+  return app.module(mod);
+
+ });
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('collections/nav/recentVideos',['require','backbone'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+
+  return Backbone.Collection.extend({
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/nav/recentItem',['require','jquery','backbone'],function (require) {
+
+  //module dependencies
+  var $ = require('jquery');
+  var Backbone = require('backbone');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+    template: 'nav/recentItem',
+
+    tagName: 'li',
+    className: 'video-list-item',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+//    initialize: function () {
+//      this.listenTo(this.model, {
+//        'change': this.render
+//      });
+//    },
+
+    serialize: function () {
+      return this.model.toJSON();
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+/**
+ * RequireJS Module Definition - AMD 'sugar' syntax
+ */
+define('views/nav/recentList',['require','backbone','./recentItem'],function (require) {
+
+  //module dependencies
+  var Backbone = require('backbone');
+  var ItemView = require('./recentItem');
+
+  return Backbone.View.extend({
+
+//------Properties------------------------------------------------------------------------------------------------------
+  template: 'nav/recentList',
+
+//------Backbone implementations----------------------------------------------------------------------------------------
+    initialize: function () {
+      this.listenTo(this.collection, 'add', this.render);
+    },
+
+//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
+    beforeRender: function() {
+      console.log(this.cid + ' rendered');
+      this.collection.each(function(item) {
+        this.insertView("ul.unstyled", new ItemView({
+          model: item
+        }));
+      }, this);
+    }
+
+//------Event Handlers--------------------------------------------------------------------------------------------------
+
+//------DOM Helpers-----------------------------------------------------------------------------------------------------
+
+  });
+});
+
+// Recentvideos module
+define('modules/recentVideos',['require','app','../collections/nav/recentVideos','../views/nav/recentList'],function(require) {
+
+  var app = require('app');
+  var RecentVideoCollection = require('../collections/nav/recentVideos');
+  var RecentVideosListView = require('../views/nav/recentList');
+
+  // Create a new module.
+  var Recentvideos = app.module();
+
+  // Default Model.
+  Recentvideos.Model = Backbone.Model.extend({
+  
+  });
+
+  // Default Collection.
+  Recentvideos.Collection = RecentVideoCollection.extend({
+    model: Recentvideos.Model
+  });
+
+  Recentvideos.Views.List = RecentVideosListView;
+
+  // Default View.
+//  Recentvideos.Views.Layout = Backbone.Layout.extend({
+//    template: "recentvideos"
+//  });
+
+  // Return the module for AMD compliance.
+  return Recentvideos;
 
 });
 
@@ -8514,193 +8720,48 @@ define('views/contact/contact',['require','backbone','underscore','./contactLink
   });
 });
 
-/**
- * RequireJS Module Definition - AMD 'sugar' syntax
- */
-define('views/home/home',['require','backbone'],function (require) {
-
-  //module dependencies
-  var Backbone = require('backbone');
-
-  return Backbone.View.extend({
-
-//------Properties------------------------------------------------------------------------------------------------------
-  template: 'home/home',
-
-//------Backbone implementations----------------------------------------------------------------------------------------
-    initialize: function () {
-    },
-
-//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
-    beforeRender: function() {
-
-    }
-
-//------Event Handlers--------------------------------------------------------------------------------------------------
-
-//------DOM Helpers-----------------------------------------------------------------------------------------------------
-
-  });
-});
-
-// Home module
-define('modules/home',['require','app','../views/contact/contact','../views/home/home'],function(require) {
+// Contact module
+define('modules/contact',['require','app','../views/contact/contact'],function (require) {
 
   var app = require('app');
   var ContactView = require('../views/contact/contact');
-  var HomeView = require('../views/home/home');
 
   // Create a new module.
-  var Home = app.module();
+  var mod = app.module();
 
   // Default Model.
-  Home.Model = Backbone.Model.extend({
+  mod.Model = Backbone.Model.extend({
   
   });
 
   // Default Collection.
-  Home.Collection = Backbone.Collection.extend({
-    model: Home.Model
+  mod.Collection = Backbone.Collection.extend({
+    model: mod.Model
   });
 
   // Default View.
-  Home.Views.Layout = Backbone.Layout.extend({
-    template: "home"
-  });
-
-  Home.Views.Contact = ContactView;
-  Home.Views.Home = HomeView;
-
-
-  // Return the module for AMD compliance.
-  return Home;
-
-});
-
-/**
- * RequireJS Module Definition - AMD 'sugar' syntax
- */
-define('collections/nav/recentVideos',['require','backbone'],function (require) {
-
-  //module dependencies
-  var Backbone = require('backbone');
-
-  return Backbone.Collection.extend({
-
-  });
-});
-
-/**
- * RequireJS Module Definition - AMD 'sugar' syntax
- */
-define('views/nav/recentItem',['require','jquery','backbone'],function (require) {
-
-  //module dependencies
-  var $ = require('jquery');
-  var Backbone = require('backbone');
-
-  return Backbone.View.extend({
-
-//------Properties------------------------------------------------------------------------------------------------------
-    template: 'nav/recentItem',
-
-    tagName: 'li',
-    className: 'video-list-item',
-
-//------Backbone implementations----------------------------------------------------------------------------------------
-    initialize: function () {
-      this.listenTo(this.model, {
-        'change': this.render
-      });
-    },
-
-    serialize: function () {
-      return this.model.toJSON();
-    }
-
-//------Event Handlers--------------------------------------------------------------------------------------------------
-
-//------DOM Helpers-----------------------------------------------------------------------------------------------------
-
-  });
-});
-
-/**
- * RequireJS Module Definition - AMD 'sugar' syntax
- */
-define('views/nav/recentList',['require','backbone','./recentItem'],function (require) {
-
-  //module dependencies
-  var Backbone = require('backbone');
-  var ItemView = require('./recentItem');
-
-  return Backbone.View.extend({
-
-//------Properties------------------------------------------------------------------------------------------------------
-  template: 'nav/recentList',
-
-//------Backbone implementations----------------------------------------------------------------------------------------
-    initialize: function () {
-      this.listenTo(this.collection, 'add', this.render);
-    },
-
-//--Backbone.Layoutmanager implementations------------------------------------------------------------------------------
-    beforeRender: function() {
-      this.collection.each(function(item) {
-        this.insertView("ul.unstyled", new ItemView({
-          model: item
-        }));
-      }, this);
-    }
-
-//------Event Handlers--------------------------------------------------------------------------------------------------
-
-//------DOM Helpers-----------------------------------------------------------------------------------------------------
-
-  });
-});
-
-// Recentvideos module
-define('modules/recentVideos',['require','app','../collections/nav/recentVideos','../views/nav/recentList'],function(require) {
-
-  var app = require('app');
-  var RecentVideoCollection = require('../collections/nav/recentVideos');
-  var RecentVideosListView = require('../views/nav/recentList');
-
-  // Create a new module.
-  var Recentvideos = app.module();
-
-  // Default Model.
-  Recentvideos.Model = Backbone.Model.extend({
-  
-  });
-
-  // Default Collection.
-  Recentvideos.Collection = RecentVideoCollection.extend({
-    model: Recentvideos.Model
-  });
-
-  Recentvideos.Views.List = RecentVideosListView;
-
-  // Default View.
-//  Recentvideos.Views.Layout = Backbone.Layout.extend({
-//    template: "recentvideos"
-//  });
+  mod.Views = {
+    Layout: Backbone.Layout.extend({
+      template: "contact"
+    }),
+    Contact: ContactView
+  };
 
   // Return the module for AMD compliance.
-  return Recentvideos;
+  return mod;
 
 });
 
-define('router',['require','backbone','lodash','app','modules/search','modules/nowPlaying','modules/home','modules/recentVideos'],function(require) {
+define('router',['require','backbone','lodash','app','modules/home','modules/search','modules/nowPlaying','modules/recentVideos','modules/contact'],function(require) {
 
   var Backbone = require('backbone');
   var _ = require('lodash');
   var app = require('app');
+  var home = require('modules/home');
   var search = require('modules/search');
   var nowPlaying = require('modules/nowPlaying');
-  var home = require('modules/home');
   var recentVideos = require('modules/recentVideos');
+  var contact = require('modules/contact');
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -8723,7 +8784,6 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
         searchBar: new search.SearchBarModel()
       };
 
-
       //make collections and models available to router
       _.extend(this, collections, models);
 
@@ -8733,9 +8793,8 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
 
       app.useLayout('main-layout').setViews({
 //        '.navbar-inner': new home.Views.TopNav(),
-        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos }),
-        '.content': new home.Views.Home()
-      }).render();
+        '.nav-side': new recentVideos.Views.List({ collection: this.recentVideos })
+      }); //.render();
     },
 
     routes: {
@@ -8748,10 +8807,12 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
 
 //--Route Handlers------------------------------------------------------------------------------------------------------
     index: function() {
-      this.clean();
-      app.layout.insertView('.content', new home.Views.Home()).render();
-//      var fragment = (this.searchResults.searchTerm ? '/' + this.searchResults.searchTerm : '');
-//      this.navigate('search' + fragment, {trigger: true});
+      app.layout.setView('.content', new home.Views.Home());
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
     },
 
     search: function (term) {
@@ -8765,53 +8826,72 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
         ".searchResults": new search.Views.List({ collection: this.searchResults })
       });
 
-      app.layout.insertView('.content', l).render();
+      app.layout.setView('.content', l);
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
 
       this.searchResults.searchTerm = term;
       this.searchBar.set('searchTerm', term);
 
       if (term) {
         this.navigate('search/' + term, {trigger: false});
-        this.searchResults.fetch({ dataType: 'jsonp' });
+        this.searchResults.fetch();
       }
     },
 
     displayVideo: function (id) {
       var self = this;
-      if (app.layout && app.layout.options.template !== 'nowPlaying/nowPlaying-layout') {
-        this.clean();
+      var contentView = app.layout.getView('.content');
+
+      this.clean();
+
+      if (!contentView || contentView.options.template !== 'nowPlaying/nowPlaying-layout'){
+        var l = new nowPlaying.Views.Layout();
+        l.setViews({
+          ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
+          ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
+          ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
+          ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
+        });
+
+        app.layout.setView('.content', l);
+        if (app.layout.__manager__.hasRendered)     {
+          app.layout.getView('.content').render().then(getData);
+          console.log('nowPlaying - content rendered');
+        } else {
+          app.layout.render().then(getData);
+          console.log('nowPlaying - app rendered');
+        }
+      } else {
+        getData();
       }
 
-      var l = new nowPlaying.Views.Layout();
-      l.setViews({
-        ".search": new nowPlaying.Views.SearchBar({ model: this.searchBar }),
-        ".nowPlaying": new nowPlaying.Views.NowPlaying({ model: this.nowPlaying }),
-        ".comments": new nowPlaying.Views.Comments({ collection: this.comments }),
-        ".related": new nowPlaying.Views.Related({ collection: this.relatedVideos })
-      });
-
-      app.layout.insertView('.content',l).render().then(function () {
-          self.nowPlaying.videoSource = id;
-          self.nowPlaying.fetch({
-            dataType: 'jsonp'
-          });
-        }
-      );
+      function getData() {
+        self.nowPlaying.videoSource = id;
+        self.nowPlaying.fetch();
+      }
     },
 
     contact: function () {
       this.clean();
-      app.layout.insertView('.content', new home.Views.Contact()).render();
+      app.layout.setView('.content', new contact.Views.Contact());
+      if (app.layout.__manager__.hasRendered)     {
+        app.layout.getView('.content').render();
+      } else {
+        app.layout.render();
+      }
     },
 
 //--Event Handlers------------------------------------------------------------------------------------------------------
     onSearch: function(searchTerm) {
       var contentView = app.layout.getViews('.content');
 
-
-      if (Backbone.history.fragment.contains('search/')) {
+      if (Backbone.history.fragment.indexOf('search', 0) !== -1) {
         this.searchResults.searchTerm = searchTerm;
-        this.searchResults.fetch({ dataType: 'jsonp' });
+        this.searchResults.fetch();
         this.navigate('search/' + searchTerm, {trigger: false});
       }else {
         this.navigate('search/' + searchTerm, {trigger: true});
@@ -8823,9 +8903,9 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
     getRelatedContent: function (model, response, options) {
       //TODO: fetch comments and related videos
       this.relatedVideos.url = model.get('id').$t + '/related' + '?format=5&alt=json-in-script';
-      this.relatedVideos.fetch({ dataType: 'jsonp' });
+      this.relatedVideos.fetch();
       this.comments.url = model.get('gd$comments').gd$feedLink.href + '?format=5&alt=json-in-script';
-      this.comments.fetch({ dataType: 'jsonp' });
+      this.comments.fetch();
 
       if (this.recentVideos.length >= 10) {
         this.recentVideos.pop();
@@ -8837,19 +8917,10 @@ define('router',['require','backbone','lodash','app','modules/search','modules/n
 
     //teardown current layout
     clean: function () {
-      if (app.layout) {
-        //remove current child views
-        app.layout.getViews('.content').each(function (childView) {
-          if (childView) {
-            childView.remove();
-          }
-        });
-
         //reset collections
         this.relatedVideos.reset();
         this.comments.reset();
         this.searchResults.reset();
-      }
     },
 
     close: function () {
