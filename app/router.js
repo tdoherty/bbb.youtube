@@ -135,7 +135,7 @@ define(function(require) {
     onSearch: function(searchTerm) {
       var contentView = app.layout.getViews('.content');
 
-      if (Backbone.history.fragment.contains('search/')) {
+      if (Backbone.history.fragment.indexOf('search', 0) !== -1) {
         this.searchResults.searchTerm = searchTerm;
         this.searchResults.fetch();
         this.navigate('search/' + searchTerm, {trigger: false});

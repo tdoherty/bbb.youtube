@@ -35,7 +35,8 @@ module.exports = function(grunt) {
       compile: {
         options: {
           templateSettings: {
-            interpolate: /\{\{(.+?)\}\}/g
+            interpolate: /\{\{(.+?)\}\}/g,
+            evaluate: /\{%(.+?)%\}/g
           }
         },
         files: {

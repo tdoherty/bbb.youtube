@@ -1,7 +1,24 @@
-/**
- * Created with JetBrains WebStorm.
- * User: DohertyT
- * Date: 5/30/13
- * Time: 1:59 PM
- * To change this template use File | Settings | File Templates.
- */
+{
+  "name": "bbb.youtube",
+  "description": "YouTube emulator written with Backbone-Boilerplate",
+  "version": "0.1",
+  "app": {
+    "urls": [
+    ],
+    "launch": {
+      "web_url": "http://tdoherty.github.io/bbb.youtube",
+      "container": "panel",
+      "width": 1280,
+      "height": 960
+
+    }
+  },
+  "icons": {
+    "128": "youtube1.jpg"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications"
+  ],
+  "manifest_version": 2
+}
